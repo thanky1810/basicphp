@@ -12,9 +12,15 @@
         <input type="submit" value="Log in" name="submit">
    </form> -->
 
-    <form action="index.php" method="post">
+    <!-- <form action="index.php" method="post">
         <label for="">quantity</label><br>
         <input type="text" name="quantity">
+        <input type="submit" value="total">
+    </form> -->
+
+
+    <form action="index.php" method="post">
+        <input type="text" name="x" placeholder="x" />
         <input type="submit" value="total">
     </form>
 
@@ -22,6 +28,13 @@
 </html>
 
 <?php
+
+
+//---------------isset() and empty()-----------------
+
+// isset return true if a variable is declared and empty is contrary
+
+
 //-------------------------Login--------------------
     // if($_GET["userName"] == "thanky" &&  $_GET["password"] == 123456)
     // {
@@ -33,14 +46,17 @@
 
 //--------------------calc---------
 
-    $item = "Chicken Pizza";
-    $price = 5.99;
+    // $item = "Chicken Pizza";
+    // $price = 5.99;
 
-    $quantity = $_POST['quantity'];
+    // $quantity = $_POST['quantity'];
 
-    $total = $price * $quantity;
+    // $total = $price * $quantity;
 
-    echo "You have ordered {$quantity} x {$item} /s <br>";
-    echo "Your total is: \${$total}";
+    // echo "You have ordered {$quantity} x {$item} /s <br>";
+    // echo "Your total is: \${$total}";
+
+
+//------------------math function------------
 
 ?>
