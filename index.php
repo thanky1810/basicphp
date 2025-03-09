@@ -20,15 +20,26 @@
 
 
     <form action="index.php" method="post">
-        <input type="text" name="x" placeholder="x" />
-        <input type="submit" value="total">
+        <input type="checkbox" name="payment[]" value="visa"> Visa
+        <input type="checkbox" name="payment[]" value="mastercard"> MasterCard
+        <input type="checkbox" name="payment[]" value="paypal"> PayPal <br>
+        <button type="submit" name="submit">Thanh toán</button>
     </form>
+
 
 </body>
 </html>
 
 <?php
 
+
+
+if(isset($_POST["submit"])){
+    $payments = $_POST["payment"];
+    foreach($payments as $payment){
+        echo $payment . "<br>";
+    }
+}
 
 //---------------isset() and empty()-----------------
 
