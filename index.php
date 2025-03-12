@@ -1,3 +1,17 @@
+<?php
+  session_start();
+  if(isset($_POST['login'])){
+    if(!empty($_POST['userName']) && !empty($_POST["password"])){
+        $_SESSION['userName'] = $_POST['userName'];
+        $_SESSION['password'] = $_POST['password'];
+
+        header("Location: home.php");
+        exit();
+    } else {
+        $error = "Missing user name or password";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,15 +20,25 @@
     <title>Document</title>
 </head>
 <body>
+    <form action="index.php" method="post">
+        <input type="text" name="userName" placeholder="User Name: "><br>
+        <input type="password" name="password" placeholder="password"><br>
+        <input type="submit" name='login' value="login">
+    </form>
+    <!-- include function -->
+
+
+
+
 
     <!-- senitize and validate -->
 
-    <form action="index.php" method="post">
+    <!-- <form action="index.php" method="post">
         <input type="text" name="userName" placeholder="User Name:"> <br> 
         <input type="text" name="age" placeholder="Age: "> <br>
         <input type="text" name="email" placeholder="Email: "> <br>         
          <input type="submit" name="login" value="login">
-    </form>
+    </form> -->
 
 
    <!-- <form action= "index.php" method="get">
@@ -43,35 +67,66 @@
 
 <?php
 
+// if(isset($_POST['login'])){
+//     if(!empty($_POST['userName']) && !empty($_POST["password"])){
+//         $_SESSION['userName'] = $_POST['userName'];
+//         $_SESSION['password'] = $_POST['password'];
+
+//         header("Location: home.php");
+//         exit();
+//     } else {
+//         $error = "Missing user name or password";
+//     }
+// }
+
+// cookie
+
+
+
+
+
+// include function 
+// include() = Copies the content of the file (php/html/text) and include it in your php file. sections of our website become reusable changes only need to be made in one place
+
+
+
+
+
+
+
+
+
+
+
 
 // senitize and validate
 
-if(isset($_POST['login'])){
-    // $userName = $_POST['userName'];
-    // $userName = filter_input(INPUT_POST, "userName", FILTER_SANITIZE_SPECIAL_CHARS);
-    // echo "Hello {$userName}";
+// if(isset($_POST['login'])){
+//     // $userName = $_POST['userName'];
+//     // $userName = filter_input(INPUT_POST, "userName", FILTER_SANITIZE_SPECIAL_CHARS);
+//     // echo "Hello {$userName}";
 
-    $age = filter_input(INPUT_POST, "age" , FILTER_VALIDATE_INT);
+//     $age = filter_input(INPUT_POST, "age" , FILTER_VALIDATE_INT);
 
-    if(empty($age)){
-        echo "that number wasn't valid";
-    }
-    else{
-        echo "you are {$age} years old";
-    }
+//     if(empty($age)){
+//         echo "that number wasn't valid";
+//     }
+//     else{
+//         echo "you are {$age} years old";
+//     }
 
-    $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+//     $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
 
-    if(empty($email)){
-        echo "That email wasn't valid";
-    }
-    else{
-        echo "Your email is: {$email}";
-    }
+//     if(empty($email)){
+//         echo "That email wasn't valid";
+//     }
+//     else{
+//         echo "Your email is: {$email}";
+//     }
 
 
 
-}
+// }
 
 
 // <!-- function -->
