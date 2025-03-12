@@ -40,24 +40,44 @@
 
 // <!-- function -->
 
-function is_even($number){
-    if($number % 2 ==0){
-        return true;
-    }
-    return false;
+// function is_even($number){
+//     if($number % 2 ==0){
+//         return true;
+//     }
+//     return false;
+// }
+
+// $number =  10;
+
+// if(is_even($number)){
+//     echo "{$number} is even";
+// }
+// else{
+//     echo "{$number} isn't even";
+// }
+
+
+// string function
+
+
+$name = "Than Van Ky";
+
+$name = strtolower($name);
+$name1 = strtoupper($name);
+// $name  = trim($name); // it used to delete space before and after content
+$name2 = str_replace("K","k", $name);
+$count = strlen($name);
+$check = strpos($name, 'n', 5);
+
+$fullname = explode(" ", $name); // implode contrary to explore
+
+
+foreach ($fullname as $name){
+    echo $name . "<br>";
 }
 
-$number =  10;
-
-if(is_even($number)){
-    echo "{$number} is even";
-}
-else{
-    echo "{$number} isn't even";
-}
-
-
-
+echo "{$name} & {$name1} & {$name2}" ;
+echo "{$count}  {$check}";
 
 
 
