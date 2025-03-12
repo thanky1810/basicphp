@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
+
+
+
+
    <!-- <form action= "index.php" method="get">
         <input type="text" name="userName" placeholder="User Name"><br>
         <input type="password" name="password"placeholder="Password"><br>
@@ -19,12 +23,12 @@
     </form> -->
 
 
-    <form action="index.php" method="post">
+    <!-- <form action="index.php" method="post">
         <input type="checkbox" name="payment[]" value="visa"> Visa
         <input type="checkbox" name="payment[]" value="mastercard"> MasterCard
         <input type="checkbox" name="payment[]" value="paypal"> PayPal <br>
         <button type="submit" name="submit">Thanh toán</button>
-    </form>
+    </form> -->
 
 
 </body>
@@ -34,12 +38,44 @@
 
 
 
-if(isset($_POST["submit"])){
-    $payments = $_POST["payment"];
-    foreach($payments as $payment){
-        echo $payment . "<br>";
+// <!-- function -->
+
+function is_even($number){
+    if($number % 2 ==0){
+        return true;
     }
+    return false;
 }
+
+$number =  10;
+
+if(is_even($number)){
+    echo "{$number} is even";
+}
+else{
+    echo "{$number} isn't even";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// if(isset($_POST["submit"])){
+//     $payments = $_POST["payment"];
+//     foreach($payments as $payment){
+//         echo $payment . "<br>";
+//     }
+// }
 
 //---------------isset() and empty()-----------------
 
