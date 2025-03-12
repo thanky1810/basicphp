@@ -7,7 +7,14 @@
 </head>
 <body>
 
+    <!-- senitize and validate -->
 
+    <form action="index.php" method="post">
+        <input type="text" name="userName" placeholder="User Name:"> <br> 
+        <input type="text" name="age" placeholder="Age: "> <br>
+        <input type="text" name="email" placeholder="Email: "> <br>         
+         <input type="submit" name="login" value="login">
+    </form>
 
 
    <!-- <form action= "index.php" method="get">
@@ -37,6 +44,35 @@
 <?php
 
 
+// senitize and validate
+
+if(isset($_POST['login'])){
+    // $userName = $_POST['userName'];
+    // $userName = filter_input(INPUT_POST, "userName", FILTER_SANITIZE_SPECIAL_CHARS);
+    // echo "Hello {$userName}";
+
+    $age = filter_input(INPUT_POST, "age" , FILTER_VALIDATE_INT);
+
+    if(empty($age)){
+        echo "that number wasn't valid";
+    }
+    else{
+        echo "you are {$age} years old";
+    }
+
+    $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+
+    if(empty($email)){
+        echo "That email wasn't valid";
+    }
+    else{
+        echo "Your email is: {$email}";
+    }
+
+
+
+}
+
 
 // <!-- function -->
 
@@ -60,25 +96,24 @@
 // string function
 
 
-$name = "Than Van Ky";
+// $name = "Than Van Ky";
 
-$name = strtolower($name);
-$name1 = strtoupper($name);
-// $name  = trim($name); // it used to delete space before and after content
-$name2 = str_replace("K","k", $name);
-$count = strlen($name);
-$check = strpos($name, 'n', 5);
+// $name = strtolower($name);
+// $name1 = strtoupper($name);
+// // $name  = trim($name); // it used to delete space before and after content
+// $name2 = str_replace("K","k", $name);
+// $count = strlen($name);
+// $check = strpos($name, 'n', 5);
 
-$fullname = explode(" ", $name); // implode contrary to explore
+// $fullname = explode(" ", $name); // implode contrary to explore
 
 
-foreach ($fullname as $name){
-    echo $name . "<br>";
-}
+// foreach ($fullname as $name){
+//     echo $name . "<br>";
+// }
 
-echo "{$name} & {$name1} & {$name2}" ;
-echo "{$count}  {$check}";
-
+// echo "{$name} & {$name1} & {$name2}" ;
+// echo "{$count}  {$check}";
 
 
 
