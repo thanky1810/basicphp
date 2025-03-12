@@ -6,6 +6,10 @@
     <title>Document</title>
 </head>
 <body>
+
+
+
+
    <!-- <form action= "index.php" method="get">
         <input type="text" name="userName" placeholder="User Name"><br>
         <input type="password" name="password"placeholder="Password"><br>
@@ -19,12 +23,12 @@
     </form> -->
 
 
-    <form action="index.php" method="post">
+    <!-- <form action="index.php" method="post">
         <input type="checkbox" name="payment[]" value="visa"> Visa
         <input type="checkbox" name="payment[]" value="mastercard"> MasterCard
         <input type="checkbox" name="payment[]" value="paypal"> PayPal <br>
         <button type="submit" name="submit">Thanh toán</button>
-    </form>
+    </form> -->
 
 
 </body>
@@ -34,12 +38,64 @@
 
 
 
-if(isset($_POST["submit"])){
-    $payments = $_POST["payment"];
-    foreach($payments as $payment){
-        echo $payment . "<br>";
-    }
+// <!-- function -->
+
+// function is_even($number){
+//     if($number % 2 ==0){
+//         return true;
+//     }
+//     return false;
+// }
+
+// $number =  10;
+
+// if(is_even($number)){
+//     echo "{$number} is even";
+// }
+// else{
+//     echo "{$number} isn't even";
+// }
+
+
+// string function
+
+
+$name = "Than Van Ky";
+
+$name = strtolower($name);
+$name1 = strtoupper($name);
+// $name  = trim($name); // it used to delete space before and after content
+$name2 = str_replace("K","k", $name);
+$count = strlen($name);
+$check = strpos($name, 'n', 5);
+
+$fullname = explode(" ", $name); // implode contrary to explore
+
+
+foreach ($fullname as $name){
+    echo $name . "<br>";
 }
+
+echo "{$name} & {$name1} & {$name2}" ;
+echo "{$count}  {$check}";
+
+
+
+
+
+
+
+
+
+
+
+
+// if(isset($_POST["submit"])){
+//     $payments = $_POST["payment"];
+//     foreach($payments as $payment){
+//         echo $payment . "<br>";
+//     }
+// }
 
 //---------------isset() and empty()-----------------
 
