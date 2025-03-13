@@ -1,16 +1,35 @@
 <?php
-  session_start();
-  if(isset($_POST['login'])){
-    if(!empty($_POST['userName']) && !empty($_POST["password"])){
-        $_SESSION['userName'] = $_POST['userName'];
-        $_SESSION['password'] = $_POST['password'];
+//   session_start();
+//   if(isset($_POST['login'])){
+//     if(!empty($_POST['userName']) && !empty($_POST["password"])){
+//         $_SESSION['userName'] = $_POST['userName'];
+//         $_SESSION['password'] = $_POST['password'];
 
-        header("Location: home.php");
-        exit();
-    } else {
-        $error = "Missing user name or password";
+//         header("Location: home.php");
+//         exit();
+//     } else {
+//         $error = "Missing user name or password";
+//     }
+// }
+
+// server
+
+    // foreach($_SERVER as $key => $value){
+    //     echo "{$key} = {$value} <br>";
+    // }
+    
+
+    $password = "123456";
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+
+
+    if(password_verify("123456", $hash)){
+        echo "you are login";
     }
-}
+    else{
+        echo "incorrect password";
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,11 +39,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="index.php" method="post">
-        <input type="text" name="userName" placeholder="User Name: "><br>
-        <input type="password" name="password" placeholder="password"><br>
-        <input type="submit" name='login' value="login">
-    </form>
+    <!-- <form action= "" method="post">
+        <input type="text" name="userName" placeholder="User Name: "><br> -->
+        <!-- <input type="password" name="password" placeholder="password"><br> -->
+        <!-- <input type="submit" name='login' value="login">
+    </form> -->
     <!-- include function -->
 
 
