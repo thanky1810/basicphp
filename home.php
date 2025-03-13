@@ -14,7 +14,3 @@
 </body>
 </html>
 
-<?php
- echo $_SESSION["userName"] . "<br>";
- echo $_SESSION["password"] . "<br>";
-?>
