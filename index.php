@@ -30,25 +30,35 @@
     //     echo "incorrect password";
     // }
 
+use Dom\Mysql;
+
     include ("database.php");
-    
-    $userName = "thanky4444";
-    $password = "123456";
-    $hash = password_hash($password, PASSWORD_DEFAULT);
+// insert into table    
+    // $userName = "thanky4444";
+    // $password = "123456";
+    // $hash = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO users (userName, password)
-            VALUES ('$userName', '$hash')";
+    // $sql = "INSERT INTO users (userName, password)
+    //         VALUES ('$userName', '$hash')";
 
 
-    try{
-        mysqli_query($conn, $sql);
-        echo "user now are registered";
-    }
-    catch(mysqli_sql_exception){
-        echo "could not register user";
-    }
-    mysqli_close($conn);
+    // try{
+    //     mysqli_query($conn, $sql);
+    //     echo "user now are registered";
+    // }
+    // catch(mysqli_sql_exception){
+    //     echo "could not register user";
+    // }
 
+// select from table
+
+    // $sql = "SELECT * FROM users WHERE userName = 'thanky'";
+    // $result = mysqli_query($conn, $sql);
+
+    // if(mysqli_num_rows($result) > 0){
+    //     $row = mysqli_fetch_assoc($result);
+    //     echo $row["id"] . "<br>";
+    // }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,6 +68,14 @@
     <title>Document</title>
 </head>
 <body>
+
+
+    <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"])?>" method="post">
+        <input type="text" name="userName" placeholder="User Name: "><br>
+        <input type="password" name="password" placeholder="Password: ">
+        <input type="submit" name="submit" value="register"> 
+    </form>
+
     <!-- <form action= "" method="post">
         <input type="text" name="userName" placeholder="User Name: "><br> -->
         <!-- <input type="password" name="password" placeholder="password"><br> -->
@@ -104,6 +122,38 @@
 </html>
 
 <?php
+
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $userName = filter_input(INPUT_POST, "userName", FILTER_SANITIZE_SPECIAL_CHARS);
+    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+
+    if(empty($userName)){
+        echo "please enter a user name";
+    }
+    elseif(empty($password)){
+        echo "please enter a password";
+    }
+    else{
+        $hash = password_hash($password, PASSWORD_DEFAULT); 
+        $sql = "INSERT INTO users (userName, password)
+                VALUES ('$userName', '$hash')";
+
+        try{
+        mysqli_query($conn, $sql);
+        echo "you are now registered!";
+        }
+        catch(mysqli_sql_exception){
+            echo "That user name is taken";
+        }
+    }
+
+
+
+
+}
+
+mysqli_close($conn);
 
 // if(isset($_POST['login'])){
 //     if(!empty($_POST['userName']) && !empty($_POST["password"])){
