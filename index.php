@@ -19,16 +19,35 @@
     // }
     
 
+    // $password = "123456";
+    // $hash = password_hash($password, PASSWORD_DEFAULT);
+
+
+    // if(password_verify("123456", $hash)){
+    //     echo "you are login";
+    // }
+    // else{
+    //     echo "incorrect password";
+    // }
+
+    include ("database.php");
+    
+    $userName = "thanky4444";
     $password = "123456";
     $hash = password_hash($password, PASSWORD_DEFAULT);
 
+    $sql = "INSERT INTO users (userName, password)
+            VALUES ('$userName', '$hash')";
 
-    if(password_verify("123456", $hash)){
-        echo "you are login";
+
+    try{
+        mysqli_query($conn, $sql);
+        echo "user now are registered";
     }
-    else{
-        echo "incorrect password";
+    catch(mysqli_sql_exception){
+        echo "could not register user";
     }
+    mysqli_close($conn);
 
 ?>
 <!DOCTYPE html>

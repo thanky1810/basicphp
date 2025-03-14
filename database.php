@@ -9,14 +9,16 @@ $password = "";
 $dbname = "businessdb";
 
 
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-
+try{
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+}
+catch(mysqli_sql_exception){
+    echo "could not connect";
+}
 if($conn){
     echo "connect successful";
 }
-else{
-    echo "could not connect";
-}
+
 
 
 // Đóng kết nối (nếu cần)
